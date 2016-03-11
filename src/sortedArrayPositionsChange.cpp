@@ -15,5 +15,26 @@ NOTES:
 
 void * sortedArrayPositionsChange(int *Arr, int len)
 {
-	return NULL;
+	if (Arr == NULL || len < 2)//ERROR CASES i.e, Invalid inputs
+		return NULL;
+	int counter1, counter2, temp=0,pos1=0,pos2=0;
+	for (int counter1 = len - 1; counter1 > 0; counter1--)//finding	the misplaced elements from the last
+	{
+		if (Arr[counter1] < Arr[counter1 - 1])//if found 
+		{
+			pos1 = counter1;
+			counter2 = counter1 - 1;
+			while (counter2 >= 0 && Arr[pos1] < Arr[counter2])// finding second element
+			{
+				pos2 = counter2;
+				counter2--;
+			}
+			  //swapping the positions
+			temp = Arr[pos1];
+			Arr[pos1] = Arr[pos2];
+			Arr[pos2] = temp;
+break;
+		}
+	}
+return Arr;
 }

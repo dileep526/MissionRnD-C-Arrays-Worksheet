@@ -13,10 +13,29 @@ ERROR CASES: Return -1 for invalid inputs.
 NOTES: Don't create new array, try to change the input array.
 */
 
-#include <stdio.h>
+#include<stdio.h>
 
 int removeArrayDuplicates(int *Arr, int len)
 {
+   int index1, index2, counter;
+     if( len <=0 || Arr== NULL) //ERROR CASES
+		return -1;
+	else
+         for (index1 = 0; index1<len; index1++)
+	  {
+		for (index2 = index1 + 1; index2<len;)
+		{
+			if (Arr[index1] == Arr[index2])//if Duplicate element found
+			{   len--;
+				for (counter = index2; counter<len; counter++)
+				{
+					Arr[counter] = Arr[counter + 1];//backshifting elements after duplicate element found
+				}
+			}
+			else 
+			      index2++;
+		  }
+	   }
+		return index1;
+	 }
 	
-	return -1;
-}
